@@ -1,17 +1,15 @@
-package NiuKe;
+package letcode;
 
+import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class StringSplitWIthToken {
+    private final Logger logger = Logger.getLogger(StringSplitWIthToken.class);
 
-    public static String[] split(String input, String[] tokens) {
+    public Object[] split(String input, String[] tokens) {
         List<String> stringsList = new ArrayList<String>();
-
-        for(int i=0; i<tokens.length; i++){
-
-        }
 
         while(tokens.length>0) {
             int lastIndex = tokens.length;
@@ -19,15 +17,18 @@ public class StringSplitWIthToken {
             for(int i=0; i< tempList.size(); i++){
                 split(tempList.get(i), Arrays.copyOf(tokens, tokens.length - 1));
             }
-
         }
 
-        return (String[]) stringsList.toArray();
+        logger.info("test in log4j");
+
+        return stringsList.toArray();
     }
 
     public static void main(String[] args) {
 
-        System.out.println(StringSplitWIthToken.split( "abc,def.ghi", new String[]{"ef", "c"}));
+        StringSplitWIthToken splitToken = new StringSplitWIthToken();
+
+        splitToken.split( "abc,def.ghi", new String[]{"ef", "c"});
 
     }
 }

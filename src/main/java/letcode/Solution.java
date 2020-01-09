@@ -1,4 +1,4 @@
-package NiuKe;
+package letcode;
 
 class Solution {
     public boolean find(int [][] array,int target) {
