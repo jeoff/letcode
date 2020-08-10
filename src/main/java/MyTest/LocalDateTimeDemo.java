@@ -2,7 +2,12 @@ package mytest;
 
 import org.apache.log4j.Logger;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.*;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 
 public class LocalDateTimeDemo {
@@ -46,6 +51,12 @@ public class LocalDateTimeDemo {
 
         logger.info(Instant.now().getEpochSecond());
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 aHH时mm分", Locale.CHINESE);
+        logger.info("当地时间: " + dateFormat.format(new Date()));
+
+        SimpleDateFormat londonSdf = new SimpleDateFormat("yyyy-MM-dd aHH:mm:ss");
+        londonSdf.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+        logger.info("伦敦时间: " + londonSdf.format(new Date()));
     }
 
     /**
