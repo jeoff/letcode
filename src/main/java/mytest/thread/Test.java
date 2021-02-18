@@ -1,4 +1,4 @@
-package mytest.Thread;
+package mytest.thread;
 
 public class Test {
     public static Object object = new Object();

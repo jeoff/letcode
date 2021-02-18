@@ -1,4 +1,4 @@
-package mytest.BigDecimal;
+package mytest.bigdecimal;
 
 public class BigIntegerTest {
 
