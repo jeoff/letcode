@@ -32,5 +32,6 @@ public class ParentChildTest {
         String nullTest = (String) null;
         System.out.println(nullTest);
         System.out.println(StringUtils.isBlank(nullTest));
+        System.out.println(StringUtils.isEmpty(nullTest));
     }
 }

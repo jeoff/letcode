@@ -11,11 +11,11 @@ class MyThread extends Thread {
     public void run() {
         synchronized (this) {
             System.out.println("MyThread is running..");
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10; i++) {
                 total += i;
                 System.out.println("total is " + total);
             }
-            notify();// 因为synchronized (this)，为了保证其他线程有wait可以被重新唤醒
+            //notify();// 因为synchronized (this)，为了保证其他线程有wait可以被重新唤醒
         }
     }
 }

@@ -1,7 +1,5 @@
 package mytest.thread;
 
-import lombok.SneakyThrows;
-
 import java.util.concurrent.Semaphore;
 
 public class SemaphoreTest {
