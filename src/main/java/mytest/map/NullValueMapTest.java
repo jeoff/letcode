@@ -20,6 +20,7 @@ public class NullValueMapTest {
         });
 
         log.info("key4 \t" + testMap.get("key4"));
+        log.info("key5 \t" + testMap.getOrDefault("key5", "key5_default"));
 
     }
 }
