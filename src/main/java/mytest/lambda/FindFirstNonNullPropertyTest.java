@@ -34,12 +34,14 @@ public class FindFirstNonNullPropertyTest {
 //                .findFirst()
 //                .orElse(null));
 
-        System.out.println("captureTime " + testList.stream()
+        String captureTime = testList.stream()
                 .filter(Objects::nonNull)
                 .filter(sba -> StringUtils.isNotBlank(sba.getCaptureTime()) && "Approved".equalsIgnoreCase(sba.getStatus()))
                 .findFirst()
                 .map(MCC::getCaptureTime)
-                .orElse(null));
+                .orElse(null);
+
+        System.out.println("captureTime " + captureTime);
     }
 
     @Test

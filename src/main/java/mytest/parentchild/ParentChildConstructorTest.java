@@ -1,7 +1,7 @@
 package mytest.parentchild;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import mytest.parentchild.domain.Father;
+import mytest.parentchild.domain.Son;
 
 public class ParentChildConstructorTest {
     public static void main(String[] args) {
@@ -9,27 +9,15 @@ public class ParentChildConstructorTest {
         Father father = new Son();
 
 //        Son son = new Father("Tom", "male", "test@baidu.com");
+        Father f2 = new Father();
+        f2.setName("parent f2");
+        f2.setEmail("parent email");
+
+        Son son = (Son) f2;
+        System.out.println(son);
     }
 }
 
-@Data
-@AllArgsConstructor
-class Father {
-    public Father() {
-        System.out.println("Father");
-    }
 
-    String name;
-    String gender;
-    String email;
-}
 
-@Data
-@AllArgsConstructor
-class Son extends Father {
-    public Son() {
-        System.out.println("Son");
-    }
 
-    String childProperty;
-}

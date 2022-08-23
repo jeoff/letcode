@@ -3,6 +3,7 @@ package mytest.lambda;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -30,11 +31,15 @@ public class CollectionOrStreamForEachTest {
     public void givenTwoCollections_whenStreamedSequentially_thenCheckOutputDifferent() {
         List<String> list = Arrays.asList("B", "A", "C", "D", "F");
         Set<String> set = new TreeSet<>(list);
+        Set<String> setReverseOrder = new TreeSet<>(Comparator.reverseOrder());
+        setReverseOrder.addAll(list);
 
         Object[] listOutput = list.stream().toArray();
         Object[] setOutput = set.stream().toArray();
+        Object[] setReverseOrderOutput = setReverseOrder.stream().toArray();
 
         assertEquals("[B, A, C, D, F]", Arrays.toString(listOutput));
         assertEquals("[A, B, C, D, F]", Arrays.toString(setOutput));
+        assertEquals("[F, D, C, B, A]", Arrays.toString(setReverseOrderOutput));
     }
 }

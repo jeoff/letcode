@@ -2,6 +2,10 @@ package mytest.enumtest;
 
 import org.apache.commons.lang3.EnumUtils;
 
+import javax.annotation.Nullable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class EnumContainsTest {
     public static void main(String[] args) {
         String trueValue = "ALERT_VERIFICATION";
@@ -11,6 +15,11 @@ public class EnumContainsTest {
         System.out.println(trueValue + " " + EnumUtils.isValidEnum(WeChatAlertType.class, trueValue));
         System.out.println(falseValue + " " + EnumUtils.isValidEnum(WeChatAlertType.class, falseValue));
         System.out.println(fzzzValue + " " + EnumUtils.isValidEnum(WeChatAlertType.class, fzzzValue));
+
+        System.out.println(SalesforceObject.Account);
+
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmssMs")));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmssMs")).length());
     }
 }
 
@@ -38,4 +47,33 @@ enum WeChatAlertType {
         return content;
     }
 
+}
+
+enum SalesforceObject {
+    Account();
+
+    private SalesforceObject() {
+    }
+
+    public boolean is(String stringValue) {
+        return this.toString().equals(stringValue);
+    }
+
+    public boolean isEqualIgnoreCase(String stringValue) {
+        return this.toString().equalsIgnoreCase(stringValue);
+    }
+
+    @Nullable
+    public static SalesforceObject fromString(@Nullable String stringValue) {
+        SalesforceObject obj = null;
+        if (stringValue != null) {
+            try {
+                obj = valueOf(stringValue);
+            } catch (IllegalArgumentException var3) {
+                obj = null;
+            }
+        }
+
+        return obj;
+    }
 }

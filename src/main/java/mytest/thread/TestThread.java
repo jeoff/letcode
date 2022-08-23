@@ -3,6 +3,9 @@ package mytest.thread;
 public class TestThread {
     public static void main(String[] args) {
         new MyThread().start();
+        Thread daemonTest = new DaemonTest();
+        daemonTest.setDaemon(true);
+        daemonTest.start();
     }
 }
 class MyThread extends Thread {
@@ -16,6 +19,15 @@ class MyThread extends Thread {
                 System.out.println("total is " + total);
             }
             //notify();// 因为synchronized (this)，为了保证其他线程有wait可以被重新唤醒
+        }
+    }
+}
+
+class DaemonTest extends Thread {
+    @Override
+    public void run() {
+        for(;;){
+
         }
     }
 }
